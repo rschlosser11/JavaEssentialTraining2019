@@ -1,10 +1,18 @@
 package com.company.model;
 
+import org.graalvm.compiler.hotspot.replacements.PluginFactory_SHA2Substitutions;
+
 public class ClothingItem {
+
+    public static final String SHIRT = "Shirt";
+    public static final String PANTS = "Pants";
+    public static final String SHOES = "Shoes";
+
     private String type;
     private String size;
     private double price;
     private int quantity;
+
 
     public ClothingItem(String type, String size, double price, int quantity) {
         this.type = type;
