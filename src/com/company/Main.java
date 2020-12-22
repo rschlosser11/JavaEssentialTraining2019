@@ -1,27 +1,37 @@
 package com.company;
 
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.company.model.ClothingItem;
 import com.company.model.ClothingSize;
 import com.company.model.Hat;
 import com.company.model.Shirt;
 
-import java.text.NumberFormat;
-
 public class Main {
+    // map is an unordered list with key/value pairs
 
     public static void main(String[] args) {
 
-        var shirt = new Shirt(
-                ClothingSize.L,
-                19.99,
-                3);
-        displayItemDetails(shirt);
+        Map<String, ClothingItem> items = new HashMap<>();
+        items.put("shirt", new Shirt(
+            ClothingSize.L,
+            19.99,
+            3));
+        items.put("hat", new Hat(
+            ClothingSize.M,
+            29.99,
+            1));
 
-        var hat = new Hat(
-                ClothingSize.M,
-                29.99,
-                1);
-        displayItemDetails(hat);
+        var anItem = items.get("hat");
+        displayItemDetails(anItem);
+
+        var keys = items.keySet();
+        for (String key : keys) {
+            var item = items.get(key);
+            displayItemDetails(item);
+        }
     }
 
     private static void displayItemDetails(ClothingItem item) {
